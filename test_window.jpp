@@ -1,0 +1,11 @@
+import std.graphics;
+import std.io;
+
+start() {
+    print("Testing graphics module...");
+    let win = Window();
+    print("Window module loaded!");
+    let col = Color();
+    print("Color module loaded!");
+    print("Graphics test complete!");
+}

@@ -1,0 +1,10 @@
+// Test the import system
+import std.math;
+import std.io;
+
+start() {
+    print("Testing imports!");
+    print("PI = " + PI);
+    print("sqrt(16) = " + sqrt(16));
+    print("random() = " + random());
+}

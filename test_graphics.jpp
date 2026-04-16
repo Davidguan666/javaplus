@@ -1,0 +1,21 @@
+// Test graphics import
+import std.graphics;
+import std.io;
+
+start() {
+    print("Creating window...");
+    
+    // Create window using the module
+    let window = Window();
+    print("Window module loaded!");
+    
+    // Get Color constants
+    let colors = Color();
+    print("Color module loaded!");
+    
+    // Use rgb function
+    let customColor = rgb(255, 128, 64);
+    print("Custom color created!");
+    
+    print("Graphics test complete!");
+}

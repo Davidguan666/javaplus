@@ -1,0 +1,13 @@
+import std.graphics;
+import std.io;
+
+start() {
+    print("Creating window...");
+    
+    let win = Window();
+    let myWin = win.create("Test Game", 800, 600);
+    
+    print("Window object created!");
+    print("Type: " + myWin.__type__);
+    print("Title: " + myWin.title);
+}
