@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java+ Programming Language - Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #1A1A2E;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 280px;
+            background: #16213E;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 2px solid #FF6B35;
+        }
+        
+        .logo {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #FF6B35;
+            margin-bottom: 20px;
+        }
+        
+        .logo h1 {
+            color: #FF6B35;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #F7B801;
+        }
+        
+        .nav ul {
+            list-style: none;
+        }
+        
+        .nav li {
+            margin: 5px 0;
+        }
+        
+        .nav a {
+            color: #E0E0E0;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover {
+            background: #FF6B35;
+            color: #1A1A2E;
+        }
+        
+        .nav .section {
+            color: #F7B801;
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 10px 15px;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+        
+        .content {
+            margin-left: 280px;
+            padding: 40px;
+            max-width: 900px;
+        }
+        
+        h1 {
+            color: #FF6B35;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #FF6B35;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #F7B801;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+        }
+        
+        h3 {
+            color: #FF6B35;
+            font-size: 1.3em;
+            margin: 25px 0 10px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        code {
+            background: #0F3460;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #F7B801;
+        }
+        
+        pre {
+            background: #0F3460;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #FF6B35;
+        }
+        
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #E0E0E0;
+        }
+        
+        .highlight {
+            color: #FF6B35;
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #004E89;
+            border-left: 4px solid #F7B801;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning {
+            background: #533483;
+            border-left: 4px solid #FF6B35;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #004E89;
+        }
+        
+        th {
+            background: #004E89;
+            color: #F7B801;
+        }
+        
+        tr:hover {
+            background: #16213E;
+        }
+        
+        .button {
+            display: inline-block;
+            background: #FF6B35;
+            color: #1A1A2E;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        
+        .button:hover {
+            background: #F7B801;
+            transform: translateY(-2px);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: #16213E;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #004E89;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            border-color: #FF6B35;
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>java<span>+</span></h1>
+            </div>
+            <ul class="nav">
+                <li class="section">Getting Started</li>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="installation.html">Installation</a></li>
+                <li><a href="quickstart.html">Quick Start</a></li>
+                
+                <li class="section">Language Basics</li>
+                <li><a href="syntax.html">Syntax Overview</a></li>
+                <li><a href="variables.html">Variables & Types</a></li>
+                <li><a href="controlflow.html">Control Flow</a></li>
+                <li><a href="functions.html">Functions</a></li>
+                <li><a href="classes.html">Classes & OOP</a></li>
+                
+                <li class="section">Game Development</li>
+                <li><a href="window.html">Creating Windows</a></li>
+                <li><a href="graphics.html">Graphics & Drawing</a></li>
+                <li><a href="input.html">Input Handling</a></li>
+                <li><a href="entities.html">Entities & Scenes</a></li>
+                
+                <li class="section">Advanced</li>
+                <li><a href="libraries.html">Using Libraries</a></li>
+                <li><a href="stdlib.html">Standard Library</a></li>
+                <li><a href="examples.html">Example Projects</a></li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <h1>Welcome to java+</h1>
+            
+            <p class="highlight">java+ is a modern game development programming language designed to make game creation simple, intuitive, and fun.</p>
+            
+            <p>Combining the best features of Java with modern syntax and game-focused capabilities, java+ provides everything you need to bring your game ideas to life.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>🎮 Game-First Design</h3>
+                    <p>Built specifically for game development with entities, scenes, and game loops as first-class citizens.</p>
+                </div>
+                <div class="card">
+                    <h3>⚡ Modern Syntax</h3>
+                    <p>Clean, readable code with type inference, lambda expressions, and modern control flow.</p>
+                </div>
+                <div class="card">
+                    <h3>📦 Rich Standard Library</h3>
+                    <p>Built-in support for vectors, colors, math functions, and game development utilities.</p>
+                </div>
+            </div>
+            
+            <h2>Quick Example</h2>
+            
+            <pre><code>// Hello World in java+
+start() {
+    print("Hello, Game World!");
+}
+
+// Simple game window
+import std.graphics;
+
+start() {
+    // Create a window like pygame
+    let window = Window.create("My Game", 800, 600);
+    
+    while (window.isOpen()) {
+        window.clear(Color.BLACK);
+        
+        // Draw a rectangle
+        window.drawRect(100, 100, 200, 150, Color.ORANGE);
+        
+        window.display();
+    }
+}</code></pre>
+            
+            <div class="note">
+                <strong>New to java+?</strong> Start with the <a href="quickstart.html">Quick Start Guide</a> to get up and running in minutes.
+            </div>
+            
+            <h2>Key Features</h2>
+            
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>Entity System</code></td>
+                    <td>Game objects with built-in update/render lifecycle</td>
+                </tr>
+                <tr>
+                    <td><code>Scene Management</code></td>
+                    <td>Organize your game into scenes with easy transitions</td>
+                </tr>
+                <tr>
+                    <td><code>Vector Math</code></td>
+                    <td>Native Vec2, Vec3, Vec4 types with operator overloading</td>
+                </tr>
+                <tr>
+                    <td><code>Type Inference</code></td>
+                    <td>Write clean code with automatic type detection</td>
+                </tr>
+                <tr>
+                    <td><code>First-class Functions</code></td>
+                    <td>Pass functions as values, use lambdas</td>
+                </tr>
+            </table>
+            
+            <h2>Installation</h2>
+            
+            <pre><code># Clone the repository
+git clone https://github.com/javaplus/javaplus.git
+cd javaplus
+
+# Run the installer
+./install.sh
+
+# Verify installation
+jp --version</code></pre>
+            
+            <a href="installation.html" class="button">View Full Installation Guide</a>
+            <a href="quickstart.html" class="button">Start Coding</a>
+        </main>
+    </div>
+</body>
+</html>

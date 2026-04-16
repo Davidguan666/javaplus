@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Libraries - java+ Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #1A1A2E;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 280px;
+            background: #16213E;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 2px solid #FF6B35;
+        }
+        
+        .logo {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #FF6B35;
+            margin-bottom: 20px;
+        }
+        
+        .logo h1 {
+            color: #FF6B35;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #F7B801;
+        }
+        
+        .nav ul {
+            list-style: none;
+        }
+        
+        .nav li {
+            margin: 5px 0;
+        }
+        
+        .nav a {
+            color: #E0E0E0;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover, .nav a.active {
+            background: #FF6B35;
+            color: #1A1A2E;
+        }
+        
+        .nav .section {
+            color: #F7B801;
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 10px 15px;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+        
+        .content {
+            margin-left: 280px;
+            padding: 40px;
+            max-width: 900px;
+        }
+        
+        h1 {
+            color: #FF6B35;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #FF6B35;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #F7B801;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+        }
+        
+        h3 {
+            color: #FF6B35;
+            font-size: 1.3em;
+            margin: 25px 0 10px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        code {
+            background: #0F3460;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #F7B801;
+        }
+        
+        pre {
+            background: #0F3460;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #FF6B35;
+        }
+        
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #E0E0E0;
+        }
+        
+        .highlight {
+            color: #FF6B35;
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #004E89;
+            border-left: 4px solid #F7B801;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning {
+            background: #533483;
+            border-left: 4px solid #FF6B35;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #004E89;
+        }
+        
+        th {
+            background: #004E89;
+            color: #F7B801;
+        }
+        
+        tr:hover {
+            background: #16213E;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>java<span>+</span></h1>
+            </div>
+            <ul class="nav">
+                <li class="section">Getting Started</li>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="installation.html">Installation</a></li>
+                <li><a href="quickstart.html">Quick Start</a></li>
+                
+                <li class="section">Language Basics</li>
+                <li><a href="syntax.html">Syntax Overview</a></li>
+                <li><a href="variables.html">Variables & Types</a></li>
+                <li><a href="controlflow.html">Control Flow</a></li>
+                <li><a href="functions.html">Functions</a></li>
+                <li><a href="classes.html">Classes & OOP</a></li>
+                
+                <li class="section">Game Development</li>
+                <li><a href="window.html">Creating Windows</a></li>
+                <li><a href="graphics.html">Graphics & Drawing</a></li>
+                <li><a href="input.html">Input Handling</a></li>
+                <li><a href="entities.html">Entities & Scenes</a></li>
+                
+                <li class="section">Advanced</li>
+                <li><a href="libraries.html" class="active">Using Libraries</a></li>
+                <li><a href="stdlib.html">Standard Library</a></li>
+                <li><a href="examples.html">Example Projects</a></li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <h1>Using Libraries</h1>
+            
+            <p class="highlight">java+ has a powerful module system that allows you to import and use libraries. This guide covers the standard library, third-party libraries, and creating your own modules.</p>
+            
+            <h2>Importing Modules</h2>
+            
+            <p>Use the <code>import</code> keyword to include libraries in your code:</p>
+            
+            <pre><code>// Import the entire module
+import std.io;
+import std.math;
+import std.graphics;
+
+// Now use the imported functions
+start() {
+    print("Hello from std.io!");
+    let result = Math.sqrt(16);
+}</code></pre>
+            
+            <h2>Standard Library Modules</h2>
+            
+            <table>
+                <tr>
+                    <th>Module</th>
+                    <th>Description</th>
+                    <th>Key Functions</th>
+                </tr>
+                <tr>
+                    <td><code>std.io</code></td>
+                    <td>Input/Output operations</td>
+                    <td>print(), readLine()</td>
+                </tr>
+                <tr>
+                    <td><code>std.math</code></td>
+                    <td>Mathematical functions</td>
+                    <td>sqrt(), sin(), cos(), pow(), random()</td>
+                </tr>
+                <tr>
+                    <td><code>std.graphics</code></td>
+                    <td>Window and graphics</td>
+                    <td>Window, Color, draw functions</td>
+                </tr>
+                <tr>
+                    <td><code>std.input</code></td>
+                    <td>Keyboard and mouse input</td>
+                    <td>Input.isKeyPressed(), Mouse.position()</td>
+                </tr>
+                <tr>
+                    <td><code>std.time</code></td>
+                    <td>Time and timing functions</td>
+                    <td>Time.now(), Time.deltaTime()</td>
+                </tr>
+                <tr>
+                    <td><code>std.audio</code></td>
+                    <td>Sound and music</td>
+                    <td>Sound.load(), Music.play()</td>
+                </tr>
+                <tr>
+                    <td><code>std.json</code></td>
+                    <td>JSON parsing</td>
+                    <td>JSON.parse(), JSON.stringify()</td>
+                </tr>
+                <tr>
+                    <td><code>std.file</code></td>
+                    <td>File operations</td>
+                    <td>File.read(), File.write()</td>
+                </tr>
+            </table>
+            
+            <h2>Module Usage Examples</h2>
+            
+            <h3>Math Module</h3>
+            <pre><code>import std.math;
+
+start() {
+    // Basic math
+    print(Math.sqrt(16));        // 4.0
+    print(Math.pow(2, 8));       // 256.0
+    print(Math.abs(-5));         // 5
+    
+    // Trigonometry
+    print(Math.sin(Math.PI / 2));  // 1.0
+    print(Math.cos(0));             // 1.0
+    
+    // Random numbers
+    print(Math.random());        // 0.0 to 1.0
+    print(Math.randomInt(1, 6)); // Random int 1-6 (like dice)
+    
+    // Constants
+    print(Math.PI);              // 3.14159...
+    print(Math.E);               // 2.71828...
+}</code></pre>
+            
+            <h3>Time Module</h3>
+            <pre><code>import std.time;
+import std.io;
+
+start() {
+    // Get current time
+    let now = Time.now();
+    print("Current timestamp: " + now);
+    
+    // Measure elapsed time
+    let startTime = Time.now();
+    
+    // ... do some work ...
+    
+    let elapsed = Time.now() - startTime;
+    print("Elapsed: " + elapsed + " seconds");
+    
+    // Sleep
+    Time.sleep(1.0);  // Sleep for 1 second
+    
+    // Game timing
+    while (true) {
+        let deltaTime = Time.deltaTime();  // Time since last frame
+        print("FPS: " + (1.0 / deltaTime));
+    }
+}</code></pre>
+            
+            <h3>File Module</h3>
+            <pre><code>import std.file;
+import std.io;
+
+start() {
+    // Read a file
+    let content = File.read("data.txt");
+    print(content);
+    
+    // Write to a file
+    File.write("output.txt", "Hello, World!");
+    
+    // Check if file exists
+    if (File.exists("savegame.dat")) {
+        print("Save file found!");
+    }
+    
+    // Read JSON
+    let json = File.readJSON("config.json");
+    print(json.playerName);
+}</code></pre>
+            
+            <h2>Creating Custom Libraries</h2>
+            
+            <p>You can create your own reusable libraries:</p>
+            
+            <h3>1. Create a Library File</h3>
+            <p>Create <code>lib/myutils.jpp</code>:</p>
+            
+            <pre><code>// lib/myutils.jpp
+// My custom utility library
+
+// Clamp a value between min and max
+func clamp(value, min, max) {
+    if (value < min) return min;
+    if (value > max) return max;
+    return value;
+}
+
+// Linear interpolation
+func lerp(start, end, t) {
+    return start + (end - start) * t;
+}
+
+// Check if point is in rectangle
+func pointInRect(px, py, rx, ry, rw, rh) {
+    return px >= rx && px <= rx + rw &&
+           py >= ry && py <= ry + rh;
+}
+
+// Export the module
+export {
+    clamp,
+    lerp,
+    pointInRect
+};</code></pre>
+            
+            <h3>2. Use Your Library</h3>
+            <pre><code>// main.jpp
+import lib.myutils;
+
+start() {
+    // Use custom library functions
+    let value = clamp(150, 0, 100);  // Returns 100
+    let pos = lerp(0, 100, 0.5);     // Returns 50
+    
+    if (pointInRect(50, 50, 0, 0, 100, 100)) {
+        print("Point is inside!");
+    }
+}</code></pre>
+            
+            <h2>Library Search Path</h2>
+            
+            <p>java+ looks for libraries in this order:</p>
+            
+            <ol>
+                <li><strong>Current directory</strong> - <code>./lib/</code></li>
+                <li><strong>Project directory</strong> - Relative to your <code>jpp.json</code></li>
+                <li><strong>Standard library</strong> - Built-in modules</li>
+                <li><strong>JAVAPLUS_PATH</strong> - Environment variable</li>
+            </ol>
+            
+            <pre><code>// Set custom library path
+export JAVAPLUS_PATH="/path/to/my/libraries:$JAVAPLUS_PATH"</code></pre>
+            
+            <h2>Third-Party Libraries</h2>
+            
+            <p>Install third-party libraries using the package manager:</p>
+            
+            <pre><code># Install a library
+jp install physics2d
+
+# Install specific version
+jp install physics2d@1.2.0
+
+# List installed libraries
+jp list
+
+# Update all libraries
+jp update
+
+# Remove a library
+jp remove physics2d</code></pre>
+            
+            <h3>Using Installed Libraries</h3>
+            <pre><code>// Import installed third-party library
+import physics2d;
+
+start() {
+    let world = PhysicsWorld.create();
+    world.setGravity(0, 9.8);
+    
+    let body = world.createBody(BodyType.DYNAMIC);
+    body.setPosition(100, 100);
+}</code></pre>
+            
+            <h2>Module Structure</h2>
+            
+            <p>A complete library structure:</p>
+            
+            <pre><code>mylibrary/
+├── jpp.json          # Library manifest
+├── src/
+│   ├── main.jpp      # Main module code
+│   ├── utils.jpp     # Utility functions
+│   └── types.jpp     # Type definitions
+├── assets/
+│   └── sprites/      # Default assets
+└── README.md         # Documentation</code></pre>
+            
+            <h3>Library Manifest (jpp.json)</h3>
+            <pre><code>{
+  "name": "mylibrary",
+  "version": "1.0.0",
+  "description": "My awesome game library",
+  "author": "Your Name",
+  "main": "src/main.jpp",
+  "dependencies": {
+    "std.graphics": ">=1.0.0",
+    "another-lib": "^2.0.0"
+  },
+  "keywords": ["game", "physics", "2d"]
+}</code></pre>
+            
+            <h2>Best Practices</h2>
+            
+            <div class="note">
+                <strong>Library Best Practices:</strong>
+                <ul>
+                    <li>Keep libraries focused on one purpose</li>
+                    <li>Use clear, descriptive function names</li>
+                    <li>Document your public API</li>
+                    <li>Version your libraries properly</li>
+                    <li>Handle errors gracefully</li>
+                </ul>
+            </div>
+            
+            <h2>Next Steps</h2>
+            
+            <ul>
+                <li><a href="stdlib.html">Standard Library Reference</a> - Complete API documentation</li>
+                <li><a href="examples.html">Example Projects</a> - See libraries in action</li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>
