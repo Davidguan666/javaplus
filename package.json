@@ -1,0 +1,17 @@
+{
+  "name": "javaplus",
+  "version": "1.0.0",
+  "description": "A tool that runs install.sh",
+  "bin": {
+    "my-install": "./install.sh"
+  },
+  "scripts": {
+    "postinstall": "chmod +x install.sh"
+  },
+  "files": [
+    "install.sh"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
