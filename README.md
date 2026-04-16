@@ -1,2 +1,2 @@
-# javaplus
-Just for fun
+In this project, there are:
+- [ ] New coding programming language java+
