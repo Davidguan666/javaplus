@@ -1,0 +1,64 @@
+// Functions in java+
+
+// Simple function
+func greet(name) {
+    print("Hello, " + name + "!");
+}
+
+// Function with return value
+func add(a, b) {
+    return a + b;
+}
+
+// Function with default parameter
+func power(base, exponent: Int) {
+    var result = 1;
+    for (var i = 0; i < exponent; i = i + 1) {
+        result = result * base;
+    }
+    return result;
+}
+
+// Recursive function
+func factorial(n) {
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+// Lambda function
+start() {
+    // Call simple function
+    greet("Player");
+    
+    // Call function with return
+    let sum = add(5, 3);
+    print("5 + 3 = " + sum);
+    
+    // Call function with default
+    let pow2 = power(2, 8);
+    print("2^8 = " + pow2);
+    
+    // Call recursive function
+    let fact5 = factorial(5);
+    print("5! = " + fact5);
+    
+    // Lambda example
+    let double = (x) => x * 2;
+    print("Double of 7: " + double(7));
+    
+    // Higher-order function pattern
+    let numbers = [1, 2, 3, 4, 5];
+    print("Numbers: " + numbers);
+    print("Array length: " + numbers.length());
+    
+    // Push to array
+    numbers.push(6);
+    print("After push: " + numbers);
+    
+    // Pop from array
+    let last = numbers.pop();
+    print("Popped: " + last);
+    print("After pop: " + numbers);
+}

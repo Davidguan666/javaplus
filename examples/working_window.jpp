@@ -1,0 +1,33 @@
+import std.graphics;
+import std.io;
+
+start() {
+    print("=== java+ Window Demo ===");
+    
+    // Create window module
+    let win = Window();
+    
+    // Create a REAL window!
+    let myWindow = win.create("My Game Window", 800, 600);
+    
+    print("");
+    print("Window created successfully!");
+    print("Type: " + myWindow.__type__);
+    print("Title: " + myWindow.title);
+    print("Width: " + myWindow.width);
+    print("Height: " + myWindow.height);
+    
+    // Get colors
+    let colors = Color();
+    print("");
+    print("Available colors:");
+    print("  BLACK, WHITE, RED, GREEN, BLUE");
+    print("  YELLOW, CYAN, MAGENTA, ORANGE");
+    
+    // Create custom color
+    let myColor = rgb(255, 128, 64);
+    print("");
+    print("Custom color created with rgb(255, 128, 64)");
+    
+    print("");
+}

@@ -1,0 +1,5 @@
+// Hello World in java+
+start() {
+    print("Hello, Game World!");
+    print("Welcome to java+ programming!");
+}

@@ -1,0 +1,51 @@
+// Control flow in java+
+start() {
+    // If statements
+    var score = 75;
+    
+    if (score >= 90) {
+        print("Grade: A");
+    } else if (score >= 80) {
+        print("Grade: B");
+    } else if (score >= 70) {
+        print("Grade: C");
+    } else if (score >= 60) {
+        print("Grade: D");
+    } else {
+        print("Grade: F");
+    }
+    
+    // While loop
+    var count = 0;
+    while (count < 5) {
+        print("Count: " + count);
+        count = count + 1;
+    }
+    
+    // For loop
+    for (var i = 0; i < 3; i = i + 1) {
+        print("For loop iteration: " + i);
+    }
+    
+    // Logical operators
+    var health = 50;
+    var mana = 30;
+    
+    if (health > 0 && mana > 0) {
+        print("Player can cast spells!");
+    }
+    
+    if (health < 20 || mana < 10) {
+        print("Player is in danger!");
+    }
+    
+    // Match statement (simplified)
+    var direction = 1;
+    match direction {
+        0 => print("North"),
+        1 => print("East"),
+        2 => print("South"),
+        3 => print("West"),
+        _ => print("Unknown")
+    }
+}

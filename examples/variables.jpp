@@ -1,0 +1,37 @@
+// Variables and types in java+
+start() {
+    // Type inference with let (immutable) and var (mutable)
+    let name = "Player";
+    var score = 0;
+    var health = 100.5;
+    let isAlive = true;
+    
+    print("Player: " + name);
+    print("Score: " + score);
+    print("Health: " + health);
+    print("Alive: " + isAlive);
+    
+    // Mutable variables can be changed
+    score = 100;
+    health = health - 10;
+    
+    print("Updated Score: " + score);
+    print("Updated Health: " + health);
+    
+    // Vector types
+    let position = vec2(100, 200);
+    let velocity = vec3(1, 2, 3);
+    let color = rgb(255, 128, 64);
+    
+    print("Position: " + position);
+    print("Velocity: " + velocity);
+    print("Color: " + color);
+    
+    // Vector operations
+    let newPos = vec2(50, 50) + vec2(10, 20);
+    print("New Position: " + newPos);
+    
+    // Vector properties
+    print("Position X: " + position.x);
+    print("Position Magnitude: " + position.magnitude);
+}

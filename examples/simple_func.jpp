@@ -1,0 +1,8 @@
+func test() {
+    return 42;
+}
+
+start() {
+    let result = test();
+    print("Result: " + result);
+}

@@ -1,0 +1,186 @@
+// Pong Game in java+
+// A complete example showing game development features
+
+// Game constants
+const SCREEN_WIDTH = 800;
+const SCREEN_HEIGHT = 600;
+const PADDLE_WIDTH = 20;
+const PADDLE_HEIGHT = 100;
+const BALL_SIZE = 15;
+const PADDLE_SPEED = 400;
+const BALL_SPEED = 300;
+
+// Game state
+var playerScore = 0;
+var aiScore = 0;
+var isGameOver = false;
+
+// Ball entity
+entity Ball {
+    property x: Float = SCREEN_WIDTH / 2;
+    property y: Float = SCREEN_HEIGHT / 2;
+    property vx: Float = BALL_SPEED;
+    property vy: Float = BALL_SPEED;
+    property size: Float = BALL_SIZE;
+    
+    func update(deltaTime) {
+        this.x = this.x + this.vx * deltaTime;
+        this.y = this.y + this.vy * deltaTime;
+        
+        // Wall collision (top/bottom)
+        if (this.y - this.size / 2 <= 0 || this.y + this.size / 2 >= SCREEN_HEIGHT) {
+            this.vy = -this.vy;
+        }
+        
+        // Score detection
+        if (this.x < 0) {
+            aiScore = aiScore + 1;
+            this.reset();
+        }
+        if (this.x > SCREEN_WIDTH) {
+            playerScore = playerScore + 1;
+            this.reset();
+        }
+    }
+    
+    func reset() {
+        this.x = SCREEN_WIDTH / 2;
+        this.y = SCREEN_HEIGHT / 2;
+        this.vx = BALL_SPEED;
+        this.vy = BALL_SPEED;
+    }
+    
+    func getBounds() {
+        return {
+            left: this.x - this.size / 2,
+            right: this.x + this.size / 2,
+            top: this.y - this.size / 2,
+            bottom: this.y + this.size / 2
+        };
+    }
+}
+
+// Paddle entity
+entity Paddle {
+    property x: Float = 0;
+    property y: Float = SCREEN_HEIGHT / 2;
+    property width: Float = PADDLE_WIDTH;
+    property height: Float = PADDLE_HEIGHT;
+    property speed: Float = PADDLE_SPEED;
+    property isPlayer: Bool = false;
+    
+    func update(deltaTime, ball) {
+        if (this.isPlayer) {
+            // Player AI (simple follow)
+            if (ball.y > this.y) {
+                this.y = this.y + this.speed * deltaTime;
+            }
+            if (ball.y < this.y) {
+                this.y = this.y - this.speed * deltaTime;
+            }
+        } else {
+            // AI paddle follows ball
+            if (ball.y > this.y) {
+                this.y = this.y + this.speed * 0.8 * deltaTime;
+            }
+            if (ball.y < this.y) {
+                this.y = this.y - this.speed * 0.8 * deltaTime;
+            }
+        }
+        
+        // Clamp to screen
+        if (this.y - this.height / 2 < 0) {
+            this.y = this.height / 2;
+        }
+        if (this.y + this.height / 2 > SCREEN_HEIGHT) {
+            this.y = SCREEN_HEIGHT - this.height / 2;
+        }
+    }
+    
+    func getBounds() {
+        return {
+            left: this.x - this.width / 2,
+            right: this.x + this.width / 2,
+            top: this.y - this.height / 2,
+            bottom: this.y + this.height / 2
+        };
+    }
+}
+
+// Check collision between ball and paddle
+func checkCollision(ball, paddle) {
+    let ballBounds = ball.getBounds();
+    let paddleBounds = paddle.getBounds();
+    
+    return ballBounds.right > paddleBounds.left &&
+           ballBounds.left < paddleBounds.right &&
+           ballBounds.bottom > paddleBounds.top &&
+           ballBounds.top < paddleBounds.bottom;
+}
+
+// Bounce ball off paddle
+func bounceBall(ball, paddle) {
+    ball.vx = -ball.vx;
+    
+    // Add some "english" based on where ball hit paddle
+    let relativeY = (ball.y - paddle.y) / (paddle.height / 2);
+    ball.vy = ball.vy + relativeY * 100;
+}
+
+// Game simulation (since we don't have real graphics yet)
+start() {
+    print("=== PONG GAME ===");
+    print("Screen: " + SCREEN_WIDTH + "x" + SCREEN_HEIGHT);
+    print();
+    
+    // Create game objects
+    let ball = new Ball();
+    let playerPaddle = new Paddle();
+    let aiPaddle = new Paddle();
+    
+    // Setup positions
+    playerPaddle.x = 50;
+    playerPaddle.isPlayer = true;
+    aiPaddle.x = SCREEN_WIDTH - 50;
+    
+    // Game loop simulation (10 seconds at 60fps)
+    let deltaTime = 1.0 / 60.0;
+    
+    for (var frame = 0; frame < 600; frame = frame + 1) {
+        // Update ball
+        ball.update(deltaTime);
+        
+        // Update paddles
+        playerPaddle.update(deltaTime, ball);
+        aiPaddle.update(deltaTime, ball);
+        
+        // Check collisions
+        if (checkCollision(ball, playerPaddle)) {
+            bounceBall(ball, playerPaddle);
+            ball.x = playerPaddle.x + playerPaddle.width / 2 + ball.size / 2 + 1;
+        }
+        
+        if (checkCollision(ball, aiPaddle)) {
+            bounceBall(ball, aiPaddle);
+            ball.x = aiPaddle.x - aiPaddle.width / 2 - ball.size / 2 - 1;
+        }
+        
+        // Print score every 60 frames
+        if (frame % 60 == 0) {
+            print("Frame " + frame + ": Player " + playerScore + " - AI " + aiScore);
+        }
+    }
+    
+    print();
+    print("=== FINAL SCORE ===");
+    print("Player: " + playerScore);
+    print("AI: " + aiScore);
+    
+    if (playerScore > aiScore) {
+        print("Player Wins!");
+    } else if (aiScore > playerScore) {
+        print("AI Wins!");
+    } else {
+        print("It's a Tie!");
+    }
+}

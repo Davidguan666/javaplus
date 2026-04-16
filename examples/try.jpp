@@ -1,0 +1,13 @@
+import std.graphics;
+
+start() {
+    // Create window like pygame.display.set_mode()
+    let window = Window.create("My Game", 800, 600);
+    
+    while (window.isOpen()) {
+        window.pollEvents();
+        window.clear(Color.BLACK);
+        window.drawRect(100, 100, 200, 150, Color.ORANGE);
+        window.display();
+    }
+}

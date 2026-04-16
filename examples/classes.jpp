@@ -1,0 +1,69 @@
+// Classes in java+
+
+class Player {
+    property name: String;
+    property health: Int = 100;
+    
+    func takeDamage(amount) {
+        this.health = this.health - amount;
+        if (this.health < 0) {
+            this.health = 0;
+        }
+    }
+    
+    func isAlive() {
+        return this.health > 0;
+    }
+    
+    func getStatus() {
+        return this.name + ": " + this.health + " HP";
+    }
+}
+
+class Vector2D {
+    property x: Float = 0;
+    property y: Float = 0;
+    
+    func magnitude() {
+        return sqrt(this.x * this.x + this.y * this.y);
+    }
+    
+    func normalize() {
+        let mag = this.magnitude();
+        if (mag > 0) {
+            this.x = this.x / mag;
+            this.y = this.y / mag;
+        }
+    }
+}
+
+start() {
+    // Create instances
+    let player = new Player();
+    player.name = "Hero";
+    
+    print(player.getStatus());
+    
+    player.takeDamage(30);
+    print(player.getStatus());
+    
+    player.takeDamage(50);
+    print(player.getStatus());
+    
+    print("Is alive: " + player.isAlive());
+    
+    player.takeDamage(30);
+    print(player.getStatus());
+    print("Is alive: " + player.isAlive());
+    
+    // Vector2D example
+    let vec = new Vector2D();
+    vec.x = 3;
+    vec.y = 4;
+    
+    print("Vector magnitude: " + vec.magnitude());
+    
+    vec.normalize();
+    print("Normalized X: " + vec.x);
+    print("Normalized Y: " + vec.y);
+}
