@@ -1,0 +1,10 @@
+[package]
+name = "jpp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rand = "0.8"
+winit = "0.30"
+softbuffer = "0.4"
+lazy_static = "1.4"
