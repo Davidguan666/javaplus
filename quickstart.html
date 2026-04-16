@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start - java+ Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #1A1A2E;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 280px;
+            background: #16213E;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 2px solid #FF6B35;
+        }
+        
+        .logo {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #FF6B35;
+            margin-bottom: 20px;
+        }
+        
+        .logo h1 {
+            color: #FF6B35;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #F7B801;
+        }
+        
+        .nav ul {
+            list-style: none;
+        }
+        
+        .nav li {
+            margin: 5px 0;
+        }
+        
+        .nav a {
+            color: #E0E0E0;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover, .nav a.active {
+            background: #FF6B35;
+            color: #1A1A2E;
+        }
+        
+        .nav .section {
+            color: #F7B801;
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 10px 15px;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+        
+        .content {
+            margin-left: 280px;
+            padding: 40px;
+            max-width: 900px;
+        }
+        
+        h1 {
+            color: #FF6B35;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #FF6B35;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #F7B801;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+        }
+        
+        h3 {
+            color: #FF6B35;
+            font-size: 1.3em;
+            margin: 25px 0 10px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        code {
+            background: #0F3460;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #F7B801;
+        }
+        
+        pre {
+            background: #0F3460;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #FF6B35;
+        }
+        
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #E0E0E0;
+        }
+        
+        .highlight {
+            color: #FF6B35;
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #004E89;
+            border-left: 4px solid #F7B801;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .step {
+            background: #16213E;
+            border: 2px solid #004E89;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .step h3 {
+            margin-top: 0;
+            color: #F7B801;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #FF6B35;
+            color: #1A1A2E;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>java<span>+</span></h1>
+            </div>
+            <ul class="nav">
+                <li class="section">Getting Started</li>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="installation.html">Installation</a></li>
+                <li><a href="quickstart.html" class="active">Quick Start</a></li>
+                
+                <li class="section">Language Basics</li>
+                <li><a href="syntax.html">Syntax Overview</a></li>
+                <li><a href="variables.html">Variables & Types</a></li>
+                <li><a href="controlflow.html">Control Flow</a></li>
+                <li><a href="functions.html">Functions</a></li>
+                <li><a href="classes.html">Classes & OOP</a></li>
+                
+                <li class="section">Game Development</li>
+                <li><a href="window.html">Creating Windows</a></li>
+                <li><a href="graphics.html">Graphics & Drawing</a></li>
+                <li><a href="input.html">Input Handling</a></li>
+                <li><a href="entities.html">Entities & Scenes</a></li>
+                
+                <li class="section">Advanced</li>
+                <li><a href="libraries.html">Using Libraries</a></li>
+                <li><a href="stdlib.html">Standard Library</a></li>
+                <li><a href="examples.html">Example Projects</a></li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <h1>Quick Start Guide</h1>
+            
+            <p class="highlight">Get up and running with java+ in 5 minutes! This guide will walk you through creating your first java+ program.</p>
+            
+            <div class="step">
+                <h3><span class="step-number">1</span>Install java+</h3>
+                <pre><code># Clone the repository
+git clone https://github.com/javaplus/javaplus.git
+cd javaplus
+
+# Run the installer
+./install.sh
+
+# Verify installation
+jp --version</code></pre>
+            </div>
+            
+            <div class="step">
+                <h3><span class="step-number">2</span>Create Your First Program</h3>
+                <p>Create a file called <code>hello.jpp</code>:</p>
+                <pre><code>// hello.jpp
+// My first java+ program
+
+start() {
+    print("Hello, World!");
+    print("Welcome to java+ programming!");
+}</code></pre>
+            </div>
+            
+            <div class="step">
+                <h3><span class="step-number">3</span>Run Your Program</h3>
+                <pre><code>jp run hello.jpp</code></pre>
+                <p>You should see:</p>
+                <pre><code>Hello, World!
+Welcome to java+ programming!</code></pre>
+            </div>
+            
+            <div class="step">
+                <h3><span class="step-number">4</span>Create a Game Window</h3>
+                <p>Create <code>window.jpp</code>:</p>
+                <pre><code>// window.jpp
+// Create a game window like pygame
+
+import std.graphics;
+
+start() {
+    // Create window (like pygame.display.set_mode())
+    let window = Window.create("My Game", 800, 600);
+    
+    // Game loop
+    while (window.isOpen()) {
+        // Handle events
+        window.pollEvents();
+        
+        // Clear screen
+        window.clear(Color.BLACK);
+        
+        // Draw a rectangle
+        window.drawRect(100, 100, 200, 150, Color.ORANGE);
+        
+        // Show what we drew
+        window.display();
+    }
+}</code></pre>
+            </div>
+            
+            <div class="step">
+                <h3><span class="step-number">5</span>Run the Game</h3>
+                <pre><code>jp run window.jpp</code></pre>
+                <p>A window should open with an orange rectangle!</p>
+            </div>
+            
+            <h2>Next: Create a Project</h2>
+            
+            <p>Use the <code>jp new</code> command to create a complete project structure:</p>
+            
+            <pre><code>jp new MyAwesomeGame
+cd MyAwesomeGame
+jp run</code></pre>
+            
+            <p>This creates:</p>
+            <pre><code>MyAwesomeGame/
+├── jpp.json          # Project configuration
+├── src/
+│   └── main.jpp      # Main game file
+├── assets/
+│   ├── sprites/      # Images
+│   ├── sounds/       # Audio
+│   └── fonts/        # Fonts
+└── build/            # Compiled output</code></pre>
+            
+            <h2>Your First Real Game</h2>
+            
+            <p>Here's a complete Pong game:</p>
+            
+            <pre><code>// pong.jpp
+import std.graphics;
+import std.input;
+
+// Game variables
+let ballX = 400.0;
+let ballY = 300.0;
+let ballDX = 5.0;
+let ballDY = 3.0;
+let paddleY = 250.0;
+let score = 0;
+
+start() {
+    let window = Window.create("Pong", 800, 600);
+    window.setFramerateLimit(60);
+    
+    while (window.isOpen()) {
+        window.pollEvents();
+        
+        // Exit on ESC
+        if (Input.isKeyPressed(Key.ESCAPE)) {
+            window.close();
+        }
+        
+        // Move paddle
+        if (Input.isKeyDown(Key.UP) && paddleY > 0) {
+            paddleY = paddleY - 5;
+        }
+        if (Input.isKeyDown(Key.DOWN) && paddleY < 500) {
+            paddleY = paddleY + 5;
+        }
+        
+        // Update ball
+        ballX = ballX + ballDX;
+        ballY = ballY + ballDY;
+        
+        // Bounce off walls
+        if (ballY <= 0 || ballY >= 580) {
+            ballDY = -ballDY;
+        }
+        if (ballX >= 780) {
+            ballDX = -ballDX;
+        }
+        
+        // Paddle collision
+        if (ballX <= 30 && ballY >= paddleY && ballY <= paddleY + 100) {
+            ballDX = -ballDX;
+            score = score + 1;
+        }
+        
+        // Reset if missed
+        if (ballX < 0) {
+            ballX = 400;
+            ballY = 300;
+            score = 0;
+        }
+        
+        // Draw everything
+        window.clear(Color.BLACK);
+        window.drawRect(10, paddleY, 20, 100, Color.WHITE);  // Paddle
+        window.drawCircle(ballX, ballY, 10, Color.ORANGE);   // Ball
+        window.display();
+    }
+}</code></pre>
+            
+            <div class="note">
+                <strong>Try it:</strong> Save the code above as <code>pong.jpp</code> and run with <code>jp run pong.jpp</code>
+            </div>
+            
+            <h2>What's Next?</h2>
+            
+            <ul>
+                <li><a href="syntax.html">Learn the Syntax</a> - Master java+ language features</li>
+                <li><a href="window.html">Creating Windows</a> - Build game windows like pygame</li>
+                <li><a href="examples.html">Example Projects</a> - More complete game examples</li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>
